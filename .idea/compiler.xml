@@ -19,6 +19,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="gulimall-common (2)" target="1.5" />
       <module name="gulimall-ware (1)" target="1.8" />
     </bytecodeTargetLevel>
   </component>
