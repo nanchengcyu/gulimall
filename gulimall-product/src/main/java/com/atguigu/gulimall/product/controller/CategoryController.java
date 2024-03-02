@@ -1,6 +1,7 @@
 package com.atguigu.gulimall.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,13 @@ import com.atguigu.common.utils.R;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+    @RequestMapping("/list/tree")
+    public R list(){
+        List<CategoryEntity> entities = categoryService.listWithTree();
+
+        return R.ok().put("data",entities);
+    }
 
     /**
      * 列表
@@ -73,10 +81,14 @@ public class CategoryController {
 
     /**
      * 删除
+     * @RequestBody :获取请求体， 必须发送post请求
+     * Spring MVC 自动将请求体的数据（json），转为对应的对下
      */
     @RequestMapping("/delete")
     public R delete(@RequestBody Long[] catIds){
-		categoryService.removeByIds(Arrays.asList(catIds));
+//		categoryService.removeByIds(Arrays.asList(catIds));
+		categoryService.removeMenuByIds(Arrays.asList(catIds));
+
 
         return R.ok();
     }
