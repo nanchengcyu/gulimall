@@ -9,7 +9,9 @@
     <description>集合服务</description>
     <packaging>pom</packaging>
     <modules>
+
         <module>gulimall-common</module>
+        <module>gulimall-third-party</module>
         <module>gulimall-product</module>
         <module>gulimall-order</module>
         <module>gulimall-member</module>
