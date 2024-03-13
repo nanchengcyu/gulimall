@@ -14,6 +14,7 @@
     <description>每一个微服务公共依赖，bean，工具类等</description>
 
     <properties>
+        <elasticsearch.version>7.4.2</elasticsearch.version>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR6</spring-cloud.version>
         <spring-cloud-alibaba-version>2.2.1.RELEASE</spring-cloud-alibaba-version>

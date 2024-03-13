@@ -12,6 +12,8 @@ import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.atguigu.common.constant.DateConstant;
 import com.atguigu.common.exception.BizCodeEnume;
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.http.HttpStatus;
 
 import java.util.HashMap;
@@ -22,7 +24,10 @@ import java.util.Map;
  *
  * @author Mark sunlightcs@gmail.com
  */
-public class R extends HashMap<String, Object> {
+@Getter
+@Setter
+public class R<T> extends HashMap<String, Object> {
+	private T data;
 	private static final long serialVersionUID = 1L;
 	
 	public R() {

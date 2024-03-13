@@ -1,6 +1,8 @@
 package com.atguigu.gulimall.product.service.impl;
 
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -25,5 +27,19 @@ public class ProductAttrValueServiceImpl extends ServiceImpl<ProductAttrValueDao
 
         return new PageUtils(page);
     }
+
+    /**
+     * 获取spu规格
+     */
+    @Override
+    public List<ProductAttrValueEntity> baseAttrlistforspu(Long spuId) {
+        return this.baseMapper.selectList(new QueryWrapper<ProductAttrValueEntity>().eq("spu_id", spuId));
+    }
+
+    @Override
+    public List<Long> selectSearchAttrIds(List<Long> attrIds) {
+        return baseMapper.selectSearchAttrIds(attrIds);
+    }
+
 
 }
