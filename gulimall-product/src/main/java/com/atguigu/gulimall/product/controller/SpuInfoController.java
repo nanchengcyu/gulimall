@@ -29,11 +29,11 @@ public class SpuInfoController {
      * 商品上架
      */
 
-    @PostMapping("/{spuId}/up")
-    public R spuUp(@PathVariable("spuId") Long spuId){
-        spuInfoService.up(spuId);
-        return R.ok();
-    }
+//    @PostMapping("/{spuId}/up")
+//    public R spuUp(@PathVariable("spuId") Long spuId){
+//        spuInfoService.up(spuId);
+//        return R.ok();
+//    }
     /**
      * 列表
      */
