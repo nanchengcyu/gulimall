@@ -4,6 +4,10 @@ spring:
     password: 1234
     url: jdbc:mysql://106.14.202.122:3306/gulimall_pms
     driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 106.14.202.122
+    port: 6379
+    password: 1234
   cloud:
     nacos:
       discovery:
