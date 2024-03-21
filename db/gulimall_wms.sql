@@ -14,6 +14,9 @@
  Date: 17/03/2022 22:14:41
 */
 
+create database gulimall_wms;
+use gulimall_wms;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

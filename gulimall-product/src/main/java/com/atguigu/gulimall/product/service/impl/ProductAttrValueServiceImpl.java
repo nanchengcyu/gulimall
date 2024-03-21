@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -39,6 +40,10 @@ public class ProductAttrValueServiceImpl extends ServiceImpl<ProductAttrValueDao
     @Override
     public List<Long> selectSearchAttrIds(List<Long> attrIds) {
         return baseMapper.selectSearchAttrIds(attrIds);
+    }
+
+    public void saveProductAttr(List<ProductAttrValueEntity> collect) {
+        this.saveBatch(collect);
     }
 
 

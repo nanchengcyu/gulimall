@@ -31,7 +31,7 @@ public class MemberLevelController {
     private MemberLevelService memberLevelService;
 
     /**
-     * 列表
+     * 获取所有会员等级
      */
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params){

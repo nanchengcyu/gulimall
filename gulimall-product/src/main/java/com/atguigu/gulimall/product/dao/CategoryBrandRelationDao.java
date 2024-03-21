@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * 品牌分类关联
  * 
@@ -16,4 +18,6 @@ import org.apache.ibatis.annotations.Param;
 public interface CategoryBrandRelationDao extends BaseMapper<CategoryBrandRelationEntity> {
 
     void updateCategory(@Param("catId") Long catId,@Param("name") String name);
+
+    List<CategoryBrandRelationEntity> getBrandsByCatId(Long catId);
 }

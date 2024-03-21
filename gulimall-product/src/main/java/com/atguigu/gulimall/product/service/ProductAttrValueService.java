@@ -23,5 +23,7 @@ public interface ProductAttrValueService extends IService<ProductAttrValueEntity
 
 
     List<Long> selectSearchAttrIds(List<Long> attrIds);
+
+    void saveProductAttr(List<ProductAttrValueEntity> collect);
 }
 

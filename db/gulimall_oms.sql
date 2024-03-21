@@ -13,7 +13,8 @@
 
  Date: 17/03/2022 22:14:13
 */
-
+create database gulimall_oms;
+use gulimall_oms;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

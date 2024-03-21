@@ -14,6 +14,11 @@
  Date: 17/03/2022 22:14:29
 */
 
+
+
+create database gulimall_sms;
+use gulimall_sms;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

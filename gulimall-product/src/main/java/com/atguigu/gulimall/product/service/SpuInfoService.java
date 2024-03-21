@@ -1,5 +1,7 @@
 package com.atguigu.gulimall.product.service;
 
+import com.atguigu.common.vo.product.SpuSaveVO;
+import com.atguigu.gulimall.product.entity.SpuInfoDescEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.atguigu.common.utils.PageUtils;
 import com.atguigu.gulimall.product.entity.SpuInfoEntity;
@@ -17,6 +19,9 @@ public interface SpuInfoService extends IService<SpuInfoEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
 
-//    void up(Long spuId);
+    void saveSpuInfo(SpuSaveVO vo);
+
+    void saveBaseSpuInfo(SpuInfoEntity infoEntity);
+
 }
 

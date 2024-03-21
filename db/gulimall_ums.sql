@@ -14,6 +14,9 @@
  Date: 17/03/2022 22:14:33
 */
 
+
+create database gulimall_ums;
+use gulimall_ums;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
