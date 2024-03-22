@@ -16,6 +16,7 @@
         <module name="gulimall-member" />
         <module name="gulimall-ware" />
         <module name="gulimall-gateway" />
+        <module name="mybatisplus" />
         <module name="gulimall-product" />
         <module name="renren-generator" />
       </profile>

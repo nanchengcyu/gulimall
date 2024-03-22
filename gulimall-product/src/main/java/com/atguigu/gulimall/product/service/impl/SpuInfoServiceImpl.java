@@ -3,9 +3,12 @@ package com.atguigu.gulimall.product.service.impl;
 import com.atguigu.common.constant.ProductConstant;
 import com.atguigu.common.to.SkuHasStockVo;
 import com.atguigu.common.to.es.SkuEsModel;
+import com.atguigu.common.to.product.SkuReductionTO;
+import com.atguigu.common.to.product.SpuBoundTO;
 import com.atguigu.common.utils.R;
 import com.atguigu.common.vo.product.*;
 import com.atguigu.gulimall.product.entity.*;
+import com.atguigu.gulimall.product.feign.CouponFeignService;
 import com.atguigu.gulimall.product.feign.SearchFeignService;
 import com.atguigu.gulimall.product.feign.WareFeignService;
 import com.atguigu.gulimall.product.service.*;
@@ -48,6 +51,8 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     SkuImagesService skuImagesService;
     @Autowired
     SkuSaleAttrValueService skuSaleAttrValueService;
+    @Autowired
+    CouponFeignService couponFeignService;
 
 
 //    @Autowired
@@ -101,6 +106,17 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         }).collect(Collectors.toList());
         attrValueService.saveProductAttr(collect);
 
+        //5.远程调用 保存spu的积分信息
+        Bounds bounds = vo.getBounds();
+        SpuBoundTO spuBoundTO = new SpuBoundTO();
+        BeanUtils.copyProperties(bounds,spuBoundTO);
+        spuBoundTO.setSpuId(infoEntity.getId());
+        R r = couponFeignService.saveSpuBounds(spuBoundTO);
+        if (r.getCode() != 0){
+        log.error("远程保存spu优惠信息失败");
+
+        }
+
 
         //6.保存spu所有的spu信息   private List<Skus> skus;//
         List<Skus> skus = vo.getSkus();
@@ -139,7 +155,12 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                     return attrValueEntity;
                 }).collect(Collectors.toList());
                 skuSaleAttrValueService.saveBatch(skuSaleAttrValueEntities);
+                //sku的优惠信息 远程调用
 
+                SkuReductionTO skuReductionTO = new SkuReductionTO();
+                BeanUtils.copyProperties(item,skuReductionTO);
+                skuReductionTO.setSkuId(skuInfoEntity.getSkuId());
+                couponFeignService.saveSkuReduction(skuReductionTO);
             });
         }
 

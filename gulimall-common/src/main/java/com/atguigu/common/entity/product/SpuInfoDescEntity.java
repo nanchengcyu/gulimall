@@ -9,9 +9,6 @@ import java.io.Serializable;
 
 /**
  * spu信息介绍
- * 
- * @author wanzenghui
- * @email lemon_wan@aliyun.com
  * @date 2021-09-02 22:58:35
  */
 @Data
