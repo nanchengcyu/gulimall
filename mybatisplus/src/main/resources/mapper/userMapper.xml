@@ -10,6 +10,17 @@
         from user
         where id = #{id}
     </select>
+    <select id="selectPageVo" resultType="cn.nanchengyu.mybatisplus.pojo.User">
+        select *
+        from user
+        where age > #{age}
+    </select>
+    <select id="selectAllOrderByAgeDesc" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        order by age desc
+    </select>
 
 
 </mapper>
